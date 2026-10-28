@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Maranatha Works | Hard jobs, real pay, real credentials</title>
+<meta name="description" content="Maranatha Works is the job-training enterprise of Maranatha Reentry. Men coming home learn and earn in the jobs most people won't do, and leave with credentials that lead to steady careers.">
+<meta name="theme-color" content="#16203a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316203a'/%3E%3Cpath d='M5 22h22' stroke='%23d98a1c' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M9 22a7 7 0 0 1 14 0' fill='%23d98a1c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  .works-hero{background:var(--night);color:var(--on-night);position:relative;overflow:hidden}
+  .works-hero .wrap{padding-block:72px 64px;display:grid;gap:20px;position:relative}
+  .works-hero h1{font-size:clamp(2.2rem,5.5vw,4rem);max-width:17ch}
+  .works-hero h1 em{font-style:normal;color:var(--dawn)}
+  .works-hero .lede{font-size:1.2rem;max-width:52ch;color:#d4dae6}
+  .stripes{position:absolute;inset:auto 0 0 0;height:14px;background:repeating-linear-gradient(-45deg,var(--dawn) 0 18px,#1a1205 18px 36px);opacity:.9}
+  .speak{display:inline-flex;gap:8px;align-items:center;font:inherit;font-size:.95rem;font-weight:700;border-radius:999px;padding:8px 16px;border:2px solid #8996b0;background:transparent;color:var(--on-night);cursor:pointer}
+  .speak.dark{border-color:var(--rule);color:var(--ink);background:var(--card)}
+  .tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:22px}
+  .track-card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:26px;display:grid;gap:10px;align-content:start;border-top:5px solid var(--sage)}
+  .track-card.own{border-top-color:var(--dawn)}
+  .track-card ul{margin:0;padding-left:1.2em;display:grid;gap:4px}
+  .filter{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+  .filter button{font:inherit;font-size:1rem;font-weight:700;padding:10px 18px;border-radius:999px;border:2px solid var(--rule);background:var(--card);color:var(--ink);cursor:pointer;min-height:48px}
+  .filter button[aria-pressed="true"]{background:var(--night);color:var(--on-night);border-color:var(--night)}
+  .jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px}
+  .job{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:22px;display:grid;gap:10px;align-content:start;transition:transform .15s ease}
+  .job:hover{transform:translateY(-3px)}
+  .job .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+  .job h3{font-size:1.35rem}
+  .badge{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;white-space:nowrap}
+  .b-now{background:color-mix(in srgb,var(--sage) 18%,var(--card));color:var(--sage)}
+  .b-lic{background:color-mix(in srgb,var(--dawn) 20%,var(--card));color:#8a5208}
+  .b-par{background:color-mix(in srgb,#5b6cff 15%,var(--card));color:#3946b8}
+  :root[data-theme="dark"] .b-lic,.b-lic{color:var(--dawn)}
+  .job dl{margin:0;display:grid;gap:6px;font-size:1rem}
+  .job dt{font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+  .job dd{margin:0}
+  .job .say{justify-self:start;font:inherit;font-size:.9rem;padding:6px 14px;border-radius:999px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer}
+  .ladder{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:l}
+  .ladder li{counter-increment:l;display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:start;background:var(--night-2);border-radius:10px;padding:18px}
+  .ladder li::before{content:counter(l);width:56px;height:56px;border-radius:50%;background:var(--dawn);color:#1a1205;display:grid;place-items:center;font-family:var(--font-display);font-size:1.6rem}
+  .ladder b{display:block;font-size:1.15rem;margin-bottom:4px}
+  .ladder span{color:#c6cddb}
+  .phase{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px}
+  .phase div{border-left:4px solid var(--dawn);padding:6px 0 6px 16px;display:grid;gap:4px}
+  .form{display:grid;gap:14px;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:24px}
+  .form label{display:grid;gap:6px;font-weight:700}
+  .form input,.form select,.form textarea{font:inherit;font-weight:400;padding:12px 14px;border-radius:8px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);min-height:48px}
+  .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:32px;align-items:start}
+  .note{font-size:.95rem;color:var(--muted)}
+  .warn{background:color-mix(in srgb,var(--dawn) 12%,var(--card));border:1px solid color-mix(in srgb,var(--dawn) 40%,transparent);border-radius:8px;padding:14px 16px;font-size:1rem}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="top" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 22h24" stroke="#d98a1c" stroke-width="2.5" stroke-linecap="round"/><path d="M9 22a7 7 0 0 1 14 0" fill="#d98a1c"/><path d="M16 6v4M7.5 10l2.5 2.5M24.5 10L22 12.5" stroke="#f6d9a6" stroke-width="2" stroke-linecap="round"/></svg>
+      Maranatha Reentry
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <div class="navlinks" id="navlinks">
+      <a href="../">Home</a>
+      <a href="#jobs">The jobs</a>
+      <a href="#path">For men</a>
+      <a href="#hire">Hire a crew</a>
+      <a href="#partner">Partner with us</a>
+      <a class="pill" href="../learning-center/">Learning Center</a>
+    </div>
+  </div>
+</nav>
+
+<header class="works-hero">
+  <div class="wrap">
+    <span class="eyebrow reveal" style="color:#f6d9a6">Maranatha Works · A job-training enterprise of Maranatha Reentry</span>
+    <h1 class="reveal d1">The jobs nobody wants are <em>the jobs that hire.</em></h1>
+    <p class="lede reveal d2">Dead animal removal. Grease traps. Hoarding cleanouts. Biohazard cleanup. These jobs are hard, dirty and always needed. Our men learn them safely, earn real pay, and leave with licenses and credentials that open the next door.</p>
+    <div class="ctas reveal d3">
+      <a class="btn btn-dawn" href="#hire">Hire a Maranatha crew →</a>
+      <a class="btn btn-ghost" href="#path">I'm coming home. How do I start?</a>
+      <button class="speak" type="button" data-read="main">🔊 Read this page to me</button>
+    </div>
+  </div>
+  <div class="stripes" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+  <section class="chapter" id="how">
+    <div class="wrap">
+      <div class="chapter-head fade">
+        <span class="eyebrow">How it works</span>
+        <h2>Two ways we put men to work</h2>
+        <p>Some jobs we do ourselves with Maranatha crews. Other jobs need trucks, licenses or equipment we don't have yet, so we train men and place them with licensed partner companies. Both roads lead to a paycheck and a credential.</p>
+      </div>
+      <div class="tracks">
+        <article class="track-card own fade">
+          <span class="eyebrow" style="color:var(--dawn)">Road 1</span>
+          <h3>Maranatha crews</h3>
+          <p>Maranatha runs the job, supervises the crew, and pays the men. Every dollar after costs goes back into training and the Reentry Home.</p>
+          <ul><li>Cleanouts, junk hauling, trash-can and dumpster-pad cleaning</li><li>Pressure washing and bird-droppings cleanup</li><li>Adds licensed services as men earn the credentials</li></ul>
+        </article>
+        <article class="track-card fade">
+          <span class="eyebrow">Road 2</span>
+          <h3>Partner companies</h3>
+          <p>Licensed companies that already do this work sign a partnership agreement with us. We send trained, ready men. They hire, supervise and help each man earn his license.</p>
+          <ul><li>Grease trap pumping, septic and portable toilets</li><li>Pest control and wildlife removal</li><li>Biohazard and trauma-scene cleanup</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter tint" id="jobs">
+    <div class="wrap">
+      <div class="chapter-head fade">
+        <span class="eyebrow">The jobs</span>
+        <h2>Ten hard jobs, and what it takes to do each one</h2>
+        <p>Tap a button to sort. Every card says what the work is, what license or training it needs, and who gives it.</p>
+      </div>
+      <div class="filter" role="group" aria-label="Sort the jobs">
+        <button type="button" data-f="all" aria-pressed="true">All jobs</button>
+        <button type="button" data-f="now" aria-pressed="false">Start now</button>
+        <button type="button" data-f="lic" aria-pressed="false">License needed</button>
+        <button type="button" data-f="par" aria-pressed="false">Partner first</button>
+      </div>
+      <div class="jobs" id="jobList"></div>
+      <p class="note" style="margin-top:20px">License rules change. Before any crew does licensed work, Maranatha confirms the current rules with the agency named on the card. Nothing on this page is legal advice.</p>
+    </div>
+  </section>
+
+  <section class="chapter on-night" id="path">
+    <div class="wrap">
+      <div class="chapter-head fade">
+        <span class="eyebrow" style="color:#f6d9a6">For men coming home</span>
+        <h2>From day one to running your own crew</h2>
+        <p>You do not need to read well to do this. Every lesson can be read out loud to you in the Learning Center.</p>
+      </div>
+      <ol class="ladder fade">
+        <li><div><b>Safety basics</b><span>Learn safety gear, lifting, chemicals and how to protect yourself from blood and germs. Short lessons you can listen to. Earn your OSHA 10-hour card.</span></div></li>
+        <li><div><b>Join a crew</b><span>Work paid jobs on a Maranatha crew or with a partner company, next to a crew lead who has your back.</span></div></li>
+        <li><div><b>Earn a license</b><span>Pick a trade you like. We help you study, pay the exam fee, and get to the test: pesticide technician, wildlife control, septage, biohazard and more.</span></div></li>
+        <li><div><b>Lead a crew</b><span>Run jobs, train the next man coming home, and earn more for it.</span></div></li>
+        <li><div><b>Own it</b><span>With a license and a record of good work, you can start your own company. We help with the business plan, taxes and your first customers.</span></div></li>
+      </ol>
+      <div class="ctas" style="margin-top:28px">
+        <a class="btn btn-dawn" href="../learning-center/">Start in the Learning Center →</a>
+        <a class="btn btn-ghost" href="mailto:nabaskerville@gmail.com?subject=Maranatha%20Works%20-%20I%20want%20to%20work">Email Nancy to sign up</a>
+      </div>
+      <p style="margin-top:18px;color:#c6cddb;max-width:70ch">Some jobs, like biohazard cleanup, can bring back hard memories. You always choose which jobs you take. Saying no to a job never costs you your spot.</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="hire">
+    <div class="wrap two">
+      <div class="chapter-head fade" style="margin:0">
+        <span class="eyebrow">For homeowners, landlords and businesses</span>
+        <h2>Hire a crew</h2>
+        <p>Tell us what you need. We send a free quote, usually within two business days. Every job is supervised, insured, and done by men rebuilding their lives.</p>
+        <div class="phase" style="margin-top:12px">
+          <div><b>Fair price</b><span class="note">Priced like any good local company. No charity markup.</span></div>
+          <div><b>Done right</b><span class="note">Licensed work is only done by licensed workers or our licensed partners.</span></div>
+        </div>
+      </div>
+      <form class="form fade" id="quoteForm">
+        <label>What do you need done?
+          <select name="job" id="qJob" required></select>
+        </label>
+        <label>Where? (city or ZIP)<input name="where" required autocomplete="postal-code"></label>
+        <label>Your name<input name="name" required autocomplete="name"></label>
+        <label>Phone or email<input name="contact" required autocomplete="email"></label>
+        <label>Anything else we should know?<textarea name="more" rows="3"></textarea></label>
+        <button class="btn btn-sage" type="submit" style="justify-self:start">Send my request →</button>
+        <p class="note">This opens your email app with your request filled in. Emergencies: call 911.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="chapter tint" id="partner">
+    <div class="wrap two">
+      <div class="chapter-head fade" style="margin:0">
+        <span class="eyebrow">For companies</span>
+        <h2>Partner with Maranatha Works</h2>
+        <p>Short on workers who will show up for the hard jobs? We train men for the work you do and send them ready. You hire them, supervise them, and help them earn their license.</p>
+        <ul style="margin:0;padding-left:1.2em;display:grid;gap:6px">
+          <li>Workers come safety-trained, with gear and a support team behind them</li>
+          <li>Maranatha stays in touch with each man to help him keep the job</li>
+          <li>You can subcontract work to Maranatha crews, or send them overflow</li>
+          <li>One simple written agreement covers pay, safety, insurance and privacy</li>
+        </ul>
+        <a class="btn btn-line" style="justify-self:start" href="partner-agreement.html">Read the partnership agreement →</a>
+      </div>
+      <form class="form fade" id="partnerForm">
+        <label>Company name<input name="company" required autocomplete="organization"></label>
+        <label>What work does your company do?<input name="work" required></label>
+        <label>How would you like to partner?
+          <select name="how">
+            <option>Hire trained men</option>
+            <option>Subcontract jobs to Maranatha crews</option>
+            <option>Train or license our men (apprentice)</option>
+            <option>All of the above</option>
+          </select>
+        </label>
+        <label>Your name and phone or email<input name="contact" required></label>
+        <button class="btn btn-sage" type="submit" style="justify-self:start">Start a partnership →</button>
+        <p class="note">This opens your email app. Nothing is signed until both sides review the agreement.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="chapter" id="launch">
+    <div class="wrap">
+      <div class="chapter-head fade">
+        <span class="eyebrow">Where we are</span>
+        <h2>Launching in three phases</h2>
+      </div>
+      <div class="phase fade">
+        <div><b>Phase 1 · Start now</b><span class="note">Cleanouts, junk hauling, trash-can and dumpster-pad cleaning, pressure washing, bird-droppings cleanup. Needs insurance, a work trailer and safety gear, not a special state license.</span></div>
+        <div><b>Phase 2 · First licenses</b><span class="note">Wildlife and dead animal removal, pest control technicians, kitchen hood and grease work. Men earn state credentials while working.</span></div>
+        <div><b>Phase 3 · Partners and big rigs</b><span class="note">Grease trap hauling, septic, portable toilets and biohazard cleanup, through licensed partner companies first.</span></div>
+      </div>
+      <p class="warn fade" style="margin-top:26px">Maranatha Works is part of Maranatha Reentry, a 501(c)(3) nonprofit. It exists to train and employ men coming home, and the money it earns supports that mission.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span style="font-family:var(--font-display);font-size:1.25rem;color:var(--on-night)">Maranatha Works</span>
+    <span>A job-training enterprise of Maranatha Reentry · Detroit, Michigan</span>
+    <span><a href="../">Maranatha Reentry home</a> · <a href="../learning-center/">Learning Center</a> · <a href="partner-agreement.html">Partnership agreement</a></span>
+    <span>© <span id="yr">2026</span> Maranatha Reentry</span>
+  </div>
+</footer>
+
+<script>
+var JOBS = [
+  {n:'Junk removal and hoarding cleanouts', f:'now', what:'Empty houses, garages, basements and rentals. Sort, haul, donate and dump.', need:'No special state license. Business registration, general liability and commercial auto insurance. OSHA 10 safety card.', who:'Maranatha (business setup); OSHA training providers', notes:'Hoarding homes can hide mold, needles and animal waste. Crews wear gloves, masks and boots.'},
+  {n:'Trash-can and dumpster-pad cleaning', f:'now', what:'Power-wash and sanitize trash cans, dumpster pads and garbage rooms for homes, apartments and restaurants.', need:'No special state license. Dirty wash water must go down a sanitary drain, not the storm drain. Check city rules.', who:'Your city or water authority', notes:'Good starter job: cheap to start, steady repeat customers.'},
+  {n:'Pressure washing and grease-stained concrete', f:'now', what:'Clean parking lots, drive-thrus, loading docks and sidewalks.', need:'No special state license. Same wash-water rules as above. Insurance required by most businesses.', who:'Your city; Maranatha insurance', notes:'Restaurants that need this also need grease trap service, so it opens doors for partners.'},
+  {n:'Bird and pigeon droppings cleanup', f:'now', what:'Clean droppings from attics, garages, bridges and building ledges.', need:'No special state license. Respirator training and fit-testing under OSHA rules, because dried droppings can make people sick.', who:'OSHA (federal); MIOSHA (Michigan)', notes:'Killing or trapping most wild birds needs a permit. Pigeons, starlings and house sparrows are the exceptions.'},
+  {n:'Dead animal removal', f:'lic', what:'Remove dead raccoons, possums, deer and other animals from homes, yards, crawl spaces and roads.', need:'Michigan DNR Wildlife Damage and Nuisance Control Permit for nuisance-animal work. Disposal must follow Michigan\'s Bodies of Dead Animals Act: an approved method within 24 hours unless chilled or frozen.', who:'Michigan DNR Wildlife Division; MDARD', notes:'Uses live traps, exclusion and removal. No firearms. Most men with a felony record cannot legally have a gun, so our methods never need one.'},
+  {n:'Wildlife exclusion', f:'lic', what:'Find how raccoons, squirrels and bats get into a house and seal them out for good.', need:'Michigan DNR Wildlife Damage and Nuisance Control Permit. Bats and some birds have extra federal rules.', who:'Michigan DNR Wildlife Division', notes:'Part carpentry, part detective work. Good path to a skilled trade.'},
+  {n:'Pest control technician', f:'lic', what:'Treat homes and businesses for mice, rats, roaches and bed bugs.', need:'MDARD Registered Applicator: age 18+, pass the commercial core exam, and finish an MDARD-approved training program. Works under a certified applicator. A pest control business license needs a certified applicator with experience.', who:'Michigan Dept. of Agriculture & Rural Development (MDARD); MSU Pesticide Safety Education', notes:'Start with a partner company. Registered applicator fee is $45.'},
+  {n:'Grease trap pumping', f:'par', what:'Pump fats, oils and grease out of restaurant grease traps and haul it away.', need:'Hauling it requires an EGLE Liquid Industrial By-Products transporter registration and permit, a Michigan Site ID number, and insurance. Needs a vacuum truck.', who:'Michigan EGLE, Materials Management Division', notes:'Partner first. Men can also learn kitchen exhaust hood cleaning, which pairs with this work.'},
+  {n:'Septic and portable toilet service', f:'par', what:'Pump septic tanks and service portable toilets at job sites and events.', need:'EGLE Septage Waste Servicing license plus a license for each truck. A responsible agent must keep up continuing septage education. Licenses run 5 years with yearly fees.', who:'Michigan EGLE, Septage Waste Program', notes:'Partner first. Big need at construction sites and summer events.'},
+  {n:'Biohazard and trauma-scene cleanup', f:'par', what:'Clean and disinfect after deaths, injuries, crimes and serious hoarding.', need:'OSHA Bloodborne Pathogens standard (29 CFR 1910.1030): written plan, training, protective gear, hepatitis B vaccine offered. Waste goes out through a permitted medical waste hauler under Michigan\'s medical waste rules. Many companies also want IICRC trauma-cleanup training.', who:'OSHA / MIOSHA; Michigan EGLE (medical waste)', notes:'Hard on the heart. Voluntary only, with counselor support. Start with a partner company.'}
+];
+var LABEL = {now:['Start now','b-now'], lic:['License needed','b-lic'], par:['Partner first','b-par']};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function render(f){
+  var h='';
+  JOBS.forEach(function(j,i){
+    if(f!=='all'&&j.f!==f) return;
+    h+='<article class="job"><div class="top"><h3>'+esc(j.n)+'</h3><span class="badge '+LABEL[j.f][1]+'">'+LABEL[j.f][0]+'</span></div>'+
+      '<p>'+esc(j.what)+'</p><dl><div><dt>What it takes</dt><dd>'+esc(j.need)+'</dd></div><div><dt>Who gives it</dt><dd>'+esc(j.who)+'</dd></div><div><dt>Good to know</dt><dd>'+esc(j.notes)+'</dd></div></dl>'+
+      '<button class="say" type="button" data-job="'+i+'">🔊 Read to me</button></article>';
+  });
+  document.getElementById('jobList').innerHTML=h;
+}
+render('all');
+document.querySelectorAll('.filter button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.filter button').forEach(function(x){x.setAttribute('aria-pressed','false');});
+    b.setAttribute('aria-pressed','true'); render(b.getAttribute('data-f'));
+  });
+});
+var sel=document.getElementById('qJob');
+JOBS.forEach(function(j){var o=document.createElement('option');o.textContent=j.n;sel.appendChild(o);});
+var other=document.createElement('option');other.textContent='Something else';sel.appendChild(other);
+
+// read aloud
+function speak(t){ if(!('speechSynthesis' in window)) return; speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(t); u.rate=.92; speechSynthesis.speak(u); }
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-job],[data-read]'); if(!b) return;
+  if(speechSynthesis.speaking){speechSynthesis.cancel(); return;}
+  if(b.hasAttribute('data-job')){var j=JOBS[+b.getAttribute('data-job')]; speak(j.n+'. '+j.what+' What it takes: '+j.need+' Good to know: '+j.notes);}
+  else speak(document.getElementById('main').innerText.replace(/🔊[^\n]*/g,''));
+});
+if(!('speechSynthesis' in window)) document.querySelectorAll('[data-read]').forEach(function(b){b.hidden=true;});
+
+// forms → email
+function mail(subject, form){
+  var d=new FormData(form), body='';
+  d.forEach(function(v,k){ body+=k.charAt(0).toUpperCase()+k.slice(1)+': '+v+'\n'; });
+  location.href='mailto:nabaskerville@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
+document.getElementById('quoteForm').addEventListener('submit',function(e){e.preventDefault();mail('Maranatha Works quote request',this);});
+document.getElementById('partnerForm').addEventListener('submit',function(e){e.preventDefault();mail('Maranatha Works partnership',this);});
+</script>
+<script src="../assets/site.js"></script>
+</body>
+</html>
