@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Opening the Learning Center | Maranatha Reentry</title>
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="1;url=https://script.google.com/macros/s/AKfycbyHQj0ELQCtW9XhMVZTcq0KGwpJE65p8qX_SpvmdB8k_bO3nGk/exec">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  body{min-height:100vh;display:grid;place-items:center;background:var(--night);color:var(--on-night);text-align:center;padding:24px}
+  .box{display:grid;gap:16px;max-width:30rem}
+  .sun{width:64px;height:64px;margin:0 auto;border-radius:50%;background:var(--dawn);box-shadow:0 0 40px var(--dawn);animation:pulse 1.4s ease-in-out infinite}
+  @keyframes pulse{50%{transform:scale(.88);opacity:.75}}
+  @media (prefers-reduced-motion:reduce){.sun{animation:none}}
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="sun" aria-hidden="true"></div>
+    <h1 style="font-size:1.8rem">Opening the Learning Center…</h1>
+    <p>If nothing happens in a few seconds, tap the button.</p>
+    <a class="btn btn-dawn" style="justify-self:center" id="go" href="https://script.google.com/macros/s/AKfycbyHQj0ELQCtW9XhMVZTcq0KGwpJE65p8qX_SpvmdB8k_bO3nGk/exec">Open the Learning Center →</a>
+    <a href="../" style="color:#b9c2d3">← Back to Maranatha Reentry</a>
+  </div>
+  <script>location.replace(document.getElementById('go').href);</script>
+</body>
+</html>
